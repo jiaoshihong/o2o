@@ -15,6 +15,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import log_loss, roc_auc_score, auc, roc_curve
 from sklearn.preprocessing import MinMaxScaler
 
+<<<<<<< HEAD
+
+weekdaycols = ['weekday_' + str(i) for i in range(1,8)]
+
+train = pd.read_csv('../datalab/train.csv'#, 
+=======
 # import xgboost as xgb
 # import lightgbm as lgb
 
@@ -234,6 +240,7 @@ from sklearn.preprocessing import MinMaxScaler
 weekdaycols = ['weekday_' + str(i) for i in range(1,8)]
 
 train = pd.read_csv('train.csv'#, 
+>>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
                         # dtype = {
                         #     'Date_received' : np.object, 
                         #     'Date' : np.object,
@@ -243,7 +250,21 @@ train = pd.read_csv('train.csv'#,
                         # }
                     )  
 
+<<<<<<< HEAD
+valid = pd.read_csv('../datalab/valid.csv'#, 
+                        # dtype = {
+                        #     'Date_received' : np.object, 
+                        #     'Date' : np.object,
+                        #     'Coupon_id' : np.object,
+                        #     'Discount_rate' : np.object,
+                        #     'Distance' : np.object
+                        # }
+                    )  
+
+dftest = pd.read_csv('../datalab/dftest.csv'#, 
+=======
 valid = pd.read_csv('valid.csv'#, 
+>>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
                         # dtype = {
                         #     'Date_received' : np.object, 
                         #     'Date' : np.object,
@@ -298,6 +319,16 @@ def check_model(data, predictors):
 
 print(train.head(2))
 
+<<<<<<< HEAD
+if not os.path.isfile('../datalab/1_model.pkl'):
+    model = check_model(train, predictors)
+    print(model.best_score_)
+    print(model.best_params_)
+    with open('../datalab/1_model.pkl', 'wb') as f:
+        pickle.dump(model, f)
+else:
+    with open('../datalab/1_model.pkl', 'rb') as f:
+=======
 if not os.path.isfile('1_model.pkl'):
     model = check_model(train, predictors)
     print(model.best_score_)
@@ -306,6 +337,7 @@ if not os.path.isfile('1_model.pkl'):
         pickle.dump(model, f)
 else:
     with open('1_model.pkl', 'rb') as f:
+>>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
         model = pickle.load(f)
 
 # valid predict
@@ -340,6 +372,12 @@ for i in vg:
         continue
     fpr, tpr, thresholds = roc_curve(tmpdf['label'], tmpdf['pred_prob'], pos_label=1)
     aucs.append(auc(fpr, tpr))
+<<<<<<< HEAD
+print(np.average(aucs))
+
+print("please enter anykey for end")
+=======
 print("test:",np.average(aucs))   
 
+>>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
 input()
