@@ -215,14 +215,14 @@ train, valid = train_test_split(data2, test_size = 0.2, stratify = data2['label'
 predictors = original_feature + user_feature.columns.tolist()[1:]
 print(len(predictors), predictors)
 
-if not os.path.isfile('../datalib/2_model.pkl'):
+if not os.path.isfile('../datalab/2_model.pkl'):
     model = check_model(train, predictors)
     print(model.best_score_)
     print(model.best_params_)
-    with open('../datalib/2_model.pkl', 'wb') as f:
+    with open('../datalab/2_model.pkl', 'wb') as f:
         pickle.dump(model, f)
 else:
-    with open('../datalib/2_model.pkl', 'rb') as f:
+    with open('../datalab/2_model.pkl', 'rb') as f:
         model = pickle.load(f)
 
 # valid set performance 
@@ -301,14 +301,14 @@ train, valid = train_test_split(data3, test_size = 0.2, stratify = data3['label'
 predictors = original_feature + user_feature.columns.tolist()[1:] + merchant_feature.columns.tolist()[1:]
 print(predictors)
 
-if not os.path.isfile('../datalib/3_model.pkl'):
+if not os.path.isfile('../datalab/3_model.pkl'):
     model = check_model(train, predictors)
     print(model.best_score_)
     print(model.best_params_)
-    with open('../datalib/3_model.pkl', 'wb') as f:
+    with open('../datalab/3_model.pkl', 'wb') as f:
         pickle.dump(model, f)
 else:
-    with open('../datalib/3_model.pkl', 'rb') as f:
+    with open('../datalab/3_model.pkl', 'rb') as f:
         model = pickle.load(f)
 
 valid['pred_prob'] = model.predict_proba(valid[predictors])[:,1]
@@ -321,7 +321,6 @@ for i in validgroup:
     fpr, tpr, thresholds = roc_curve(tmpdf['label'], tmpdf['pred_prob'], pos_label=1)
     aucs.append(auc(fpr, tpr))
 print(np.average(aucs))
-
 
 print("please enter anykey for end")
 input()
