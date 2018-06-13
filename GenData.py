@@ -24,11 +24,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 def GenTrain_ValidData():
 
-<<<<<<< HEAD
     dfoff = pd.read_csv('../datalab/ccf_offline_stage1_train.csv', 
-=======
-    dfoff = pd.read_csv('datalab/ccf_offline_stage1_train.csv', 
->>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
                             dtype = {
                                 'Date_received' : np.object, 
                                 'Date' : np.object,
@@ -37,11 +33,7 @@ def GenTrain_ValidData():
                                 'Distance' : np.object
                             }
                         )               
-<<<<<<< HEAD
     dftest = pd.read_csv('../datalab/ccf_offline_stage1_test_revised.csv',
-=======
-    dftest = pd.read_csv('datalab/ccf_offline_stage1_test_revised.csv',
->>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
                             dtype = {
                                 'Date_received' : np.object, 
                                 'Coupon_id' : np.object,
@@ -50,11 +42,7 @@ def GenTrain_ValidData():
                             }
                         )
 
-<<<<<<< HEAD
     dfon = pd.read_csv('../datalab/ccf_online_stage1_train.csv',
-=======
-    dfon = pd.read_csv('datalab/ccf_online_stage1_train.csv',
->>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
                             dtype = {
                                 'Date_received' : np.object, 
                                 'Date' : np.object,
@@ -235,11 +223,7 @@ def GenTrain_ValidData():
     print('已有columns：',dfoff.columns.tolist())
 
     dfoff.head(2)
-<<<<<<< HEAD
     # dfoff.to_csv('temp1.csv')
-=======
-    dfoff.to_csv('temp1.csv')
->>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
 
     # data split
     df = dfoff[dfoff['label'] != -1].copy()
@@ -247,7 +231,6 @@ def GenTrain_ValidData():
     train = df[(df['Date_received'] < '20160516')].copy()
     valid = df[(df['Date_received'] >= '20160516') & (df['Date_received'] <= '20160615')].copy()
     print(train['label'].value_counts())
-<<<<<<< HEAD
     print(valid['label'].value_counts())
 
     dfoff.to_csv("../datalab/dfoff.csv")
@@ -258,6 +241,3 @@ def GenTrain_ValidData():
     print("create csv file : dfoff, train, valid, dftest")
 
 GenTrain_ValidData()
-=======
-    print(valid['label'].value_counts())
->>>>>>> ded3f4e067096f99ec772dcc9b2368676fd78b67
