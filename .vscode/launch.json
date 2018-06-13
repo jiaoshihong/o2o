@@ -1,0 +1,30 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mac-debug",
+            "type": "python",
+            "request": "launch",
+            "program": "/Users/jiaoshihong/Documents/py_proj/o2o_github/o2o/o2o.py",
+            "pythonPath": "/Users/jiaoshihong/Documents/py_proj/o2o_github/o2oenv/bin/python3",
+            "debugOptions": [
+                "RedirectOutput"
+            ],
+            "preLaunchTask": "mac"            
+        },        
+        {
+            "name": "win-debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/o2o.py",
+            "pythonPath": "C:/Program Files (x86)/Microsoft Visual Studio/Shared/Python36_64/python",
+            "debugOptions": [
+                "RedirectOutput"
+            ],
+            "preLaunchTask": "win"            
+        }   
+    ]
+}

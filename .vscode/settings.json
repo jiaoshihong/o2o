@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "/Users/jiaoshihong/Documents/py_proj/o2o_github/o2oenv/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "/Users/jiaoshihong/Documents/py_proj/o2o_github/o2oenv/lib/python3.6",
+        "/Users/jiaoshihong/Documents/py_proj/o2o_github/o2oenv/lib/python3.6/site-packages"  
+        
+    ]    
+}
